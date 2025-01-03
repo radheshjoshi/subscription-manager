@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "subscriptions")
@@ -17,14 +18,14 @@ import java.time.LocalDate;
 public class Subscription {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     private String platformName;
 
     private Double cost;
 
-    private LocalDate renewalData;
+    private LocalDate renewalDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
